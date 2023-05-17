@@ -47,6 +47,7 @@ class MyContext : DbContext
 /// </summary>
 public static class DbContextExtensions
 {
+    // credits to: https://stackoverflow.com/a/43892614/6404726
     public static async Task<List<T>> RawSqlQuery<T>(this DbContext context, string query, Func<DbDataReader, T> map)
     {
         using var command = context.Database.GetDbConnection().CreateCommand();
